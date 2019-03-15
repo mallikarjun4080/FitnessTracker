@@ -1,5 +1,5 @@
 const express = require('express');
-const user   = require('../models/user');
+const user   = require('../models/FoodItem');
 const app  = express.Router();
 
 app.get("/", (req,res) =>{

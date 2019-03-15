@@ -2,12 +2,12 @@ const conn = require('./mysql_connection');
 
 const model = {
     getAll(cb){
-        conn.query("SELECT * FROM Fitness_Persons", (err, data) => {
+        conn.query("SELECT * FROM Fitness_FoodItems", (err, data) => {
             cb(err, data);
         });    
     },
     get(id, cb){
-        conn.query("SELECT * FROM Fitness_Persons WHERE Id=?", id, (err, data) => {
+        conn.query("SELECT * FROM Fitness_FoodItems WHERE Id=?", id, (err, data) => {
             cb(err, data[0]);
         });    
     },
@@ -16,8 +16,8 @@ const model = {
             cb(Error('A longer Password is Required'));
             return;
         }
-        conn.query( "INSERT INTO Fitness_Persons(Id,FirstName,LastName,Password,created_at) VALUES (?)",
-                    [[input.Id,input.FirstName, input.LastName, input.Password, new Date()]],
+        conn.query( "INSERT INTO Fitness_FoodItems(Food_Id,calorie_amount,created_at) VALUES (?)",
+                    [[input.Food_Id,input.calorie_amount, new Date()]],
                     (err, data) => {
                         if(err){
                             cb(err);
