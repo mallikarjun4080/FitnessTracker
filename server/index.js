@@ -2,6 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const users =  require('./controllers/users');
+//const Calories =  require('./controllers/Calories');
+//const Exercises =  require('./controllers/Exercises');
+//const FoodItems =  require('./controllers/FoodItems');
+
 const path = require('path');
 
 const app = express();
