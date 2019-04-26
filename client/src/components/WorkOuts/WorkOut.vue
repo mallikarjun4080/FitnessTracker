@@ -25,14 +25,16 @@
                                                 <tr>
                                                     <th scope="col">#</th>
                                                     <th scope="col"></th>
-                                                    
+                                                    <th scope="col">Workout</th>
+                                                    <th scope="col">Sets</th>
+                                                    <th scope="col">Steps</th>
                                                     <th scope="col">Type</th>
                                                     <th scope="col">Status</th>
                                                     <th scope="col">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for-key="(work, index) in workoutarray">
+                                                <tr v-for="(work, index) in workoutarray">
                                                  <th scope="row">{{ ++index }}</th>
                                                     <td>
                                                         <img src="./../../assets/jumping_jacks.jpg" class="workout-icon-image"/>
@@ -43,7 +45,8 @@
                                                         {{work.workoutDetail}}
                                                     </td>
                                                     <td>{{work.sets}}</td>
-                                                    
+                                                    <td>{{work.steps}}</td>
+                                                    <td>{{work.type}}</td>
                                                     <td class="max-width-full"><span class="badge badge-info">{{work.workoutStatus}}</span></td>
                                                     <td>
                                                         <div class="dropdown">

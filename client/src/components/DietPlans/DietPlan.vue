@@ -31,7 +31,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for-key="(diet, index) in dietPlansArray">
+                                                <tr v-for="(diet, index) in dietPlansArray">
                                                     <th scope="row">{{ ++index }}</th>
                                                     <td>
                                                         <b>{{diet.dietplanName}}</b>

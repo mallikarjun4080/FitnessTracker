@@ -73,7 +73,13 @@
                                                     v-model="height">
                                             </div>
                                         </div>
-                                        
+                                        <div class="col-sm-6">
+                                            <div class="form-group text-left">
+                                                <label for="bodyweight">Body Weight</label>
+                                                <input type="text" class="form-control" id="age" name="bodyweight"
+                                                    v-model="bodyweight">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
