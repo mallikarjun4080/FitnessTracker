@@ -12,10 +12,8 @@ const model = {
         });    
     },
     add(input, cb){
-        if(input.Password.length < 8){
-            cb(Error('A longer Password is Required'));
-            return;
-        }
+       
+        
         conn.query( "INSERT INTO Fitness_FoodItems(Food_Id,calorie_amount,created_at) VALUES (?)",
                     [[input.Food_Id,input.calorie_amount, new Date()]],
                     (err, data) => {
