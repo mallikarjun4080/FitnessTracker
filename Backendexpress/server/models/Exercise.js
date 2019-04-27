@@ -12,7 +12,10 @@ const model = {
         });    
     },
     add(input, cb){
-        
+        if(input.Password.length < 8){
+            cb(Error('A longer Password is Required'));
+            return;
+            }
         conn.query( "INSERT INTO Fitness_Exercise(Exercise_Id,created_at) VALUES (?)",
                     [[input.Exercise_Id, new Date()]],
                     (err, data) => {
