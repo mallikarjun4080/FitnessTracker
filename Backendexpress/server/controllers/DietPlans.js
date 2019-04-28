@@ -1,9 +1,11 @@
 const express = require('express');
-const user   = require('../models/Workout');
+const user   = require('../models/DietPlan');
 const app  = express.Router();
 const auth=require('../middlewares/requireAuth.js');
 
-app.get("/", auth, (req,res) =>{
+
+
+app.get("/",auth, (req,res) =>{
 
     user.getAll(req.query.email, (err,data) =>{
         if(err) throw err;
@@ -13,7 +15,7 @@ app.get("/", auth, (req,res) =>{
 });
 app.get("/:id", auth, (req,res) =>{
 
-    user.get(req.params.id, req.query.email, (err,data) =>{
+    user.get(req.params.id,req.query.email, (err,data) =>{
         if(err) throw err;
         res.send(data);
     });
