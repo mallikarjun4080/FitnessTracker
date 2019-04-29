@@ -3,6 +3,22 @@ const user   = require('../models/Workout');
 const app  = express.Router();
 const auth=require('../middlewares/requireAuth.js');
 
+app.put("/:workouts_id", auth, (req,res) =>{
+
+    user.update(req.body, req.params.workouts_id,req.query.email, (err,data) =>{
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
+app.delete("/:workouts_id",auth, (req,res) =>{
+
+    user.delete(req.params.workouts_id,req.query.email, (err,data) =>{
+        if(err) throw err;
+        res.send(data);
+    });
+
+});
 app.get("/", auth, (req,res) =>{
 
     user.getAll(req.query.email, (err,data) =>{

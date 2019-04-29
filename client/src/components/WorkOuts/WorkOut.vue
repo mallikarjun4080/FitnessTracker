@@ -34,7 +34,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr v-for="(work, index) in workoutarray">
+                                                <tr v-for ="(work, index) in workoutarray">
                                                  <th scope="row">{{ ++index }}</th>
                                                     <td>
                                                         <img src="./../../assets/jumping_jacks.jpg" class="workout-icon-image"/>
