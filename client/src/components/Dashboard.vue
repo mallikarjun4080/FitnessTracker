@@ -17,7 +17,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <p class="main-title">Workouts</p>
-                                                    <p class="main-subtitle">20%</p>
+                                                    <p class="main-subtitle">{{workouts}}%</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -30,7 +30,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <p class="main-title">Nutritions</p>
-                                                    <p class="main-subtitle">20%</p>
+                                                    <p class="main-subtitle">{{nutritions}}%</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -43,7 +43,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <p class="main-title">Goals</p>
-                                                    <p class="main-subtitle">20%</p>
+                                                    <p class="main-subtitle">{{goals}}%</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -56,7 +56,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <p class="main-title">Calories</p>
-                                                    <p class="main-subtitle">20%</p>
+                                                    <p class="main-subtitle">{{calories}}%</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,7 +94,11 @@
         data: function () {
             return {
                 token: '',
-                email: ''
+                email: '',
+                workouts: '',
+                nutritions: '',
+                goals: '',
+                calories: ''
             }
         },
         mounted: function () {
@@ -117,6 +121,7 @@
                     }
                 }
                 axios.get("http://localhost:4000/api/dashboard/workouts", config).then((response) => {
+                    this.workouts = parseInt(response.data);
                     return new CircleChart({
                         $container: document.getElementById('circles-1'),
                         ringProportion: 0.45,
@@ -148,6 +153,7 @@
                     }
                 }
                 axios.get("http://localhost:4000/api/dashboard/nutritions", config).then((response) => {
+                    this.nutritions = parseInt(response.data);
                     return new CircleChart({
                         $container: document.getElementById('circles-2'),
                         ringProportion: 0.45,
@@ -179,6 +185,7 @@
                     }
                 }
                 axios.get("http://localhost:4000/api/dashboard/goals", config).then((response) => {
+                    this.goals = parseInt(response.data);
                     return new CircleChart({
                         $container: document.getElementById('circles-3'),
                         ringProportion: 0.45,
@@ -210,6 +217,7 @@
                     }
                 }
                 axios.get("http://localhost:4000/api/dashboard/calories", config).then((response) => {
+                    this.calories = parseInt(response.data)
                     return new CircleChart({
                         $container: document.getElementById('circles-4'),
                         ringProportion: 0.45,

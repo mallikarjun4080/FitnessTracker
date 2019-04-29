@@ -81,7 +81,7 @@
                                                     <td>Body Weight Workouts</td>
                                                     <td class="max-width-full"><span class="badge badge-info">In Progress</span></td>
                                                     <td>
-                                                        <div class="dropdown">
+                                                       <!-- <div class="dropdown">
                                                             <button class="btn btn-secondary dropdown-toggle"
                                                                 type="button" id="dropdownMenuButton"
                                                                 data-toggle="dropdown" aria-haspopup="true"
@@ -95,7 +95,7 @@
                                                                         Edit/View</router-link>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -113,7 +113,7 @@
                                                     <td>Body Weight Workouts</td>
                                                     <td class="max-width-full"><span class="badge badge-info">In Progress</span></td>
                                                     <td>
-                                                        <div class="dropdown">
+                                                        <!-- <div class="dropdown">
                                                             <button class="btn btn-secondary dropdown-toggle"
                                                                 type="button" id="dropdownMenuButton"
                                                                 data-toggle="dropdown" aria-haspopup="true"
@@ -125,7 +125,7 @@
                                                                 <router-link class="dropdown-item" :to="{path: 'createworkout', query: { workout_id: 1 }}" ><i class="glyphicon glyphicon-plus"></i>
                                                                         Edit/View</router-link>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </td>
                                                 </tr>
                                             </tbody>
