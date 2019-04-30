@@ -1,30 +1,30 @@
 const express = require('express');
-const user   = require('../models/user');
+const user = require('../models/user');
 const keys = require('../../config.js');
-const jwt = require('jsonwebtoken');
-const app  = express.Router();
+const jwt=require('jsonwebtoken');
+const app = express.Router();
 
-app.get("/", (req,res) =>{
+app.get("/", (req, res) => {
 
-    user.getAll((err,data) =>{
-        if(err) throw err;
+    user.getAll((err, data) => {
+        if (err) throw err;
         res.send(data);
     });
 
 });
-app.get("/:id", (req,res) =>{
+app.get("/:id", (req, res) => {
 
-    user.get(req.params.id, (err,data) =>{
-        if(err) throw err;
+    user.get(req.params.id, (err, data) => {
+        if (err) throw err;
         res.send(data);
     });
 
 });
-app.post("/", (req,res) =>{
+app.post("/", (req, res) => {
     
     console.log(req.body);
-    user.add(req.body, (err,data) =>{
-        if(err) throw err;
+    user.add(req.body, (err, data) => {
+        if (err) throw err;
         res.send(data);
     });
 

@@ -12,7 +12,11 @@ const model = {
             cb(err, data);
         });
     },
-    
+    delete(id, email, cb) {
+        conn.query(`DELETE FROM workouts where workouts_id =${mysql.escape(id)} and email=${mysql.escape(email)}`, (err, data) => {
+            cb(err, data);
+        });
+    },
     getAll(email, cb){
         conn.query(`SELECT * FROM workouts where email = ${mysql.escape(email)}`, (err, data) => {
             cb(err, data);

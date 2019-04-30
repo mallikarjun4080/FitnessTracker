@@ -14,12 +14,13 @@ const Profile=require('./controllers/Profiles');
 
 
 const path = require('path');
-//require('dotenv').config({ path: path.resolve(__dirname, '/./../.env') })
+require('dotenv').config({ path: path.resolve(__dirname, '/./../.env') })
 const app = express();
 
-// app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
 app.use(cors());
+
 
 
 app.use(express.urlencoded({ extended: false }));

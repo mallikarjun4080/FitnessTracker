@@ -23,7 +23,31 @@ const model = {
             cb(err, data[0]);
         });
     }, 
-    
+    update(input, email, cb) {
+        conn.query(`UPDATE profiles SET designation=${mysql.escape(input.designation)},
+        gender=${mysql.escape(input.gender)},
+        age=${mysql.escape(input.age)},
+        height=${mysql.escape(input.height)},
+        bodyweight=${mysql.escape(input.bodyweight)},
+        bmi=${mysql.escape(input.bmi)},
+        bloodpressure=${mysql.escape(input.bloodpressure)}
+        where email=${mysql.escape(email)}`, (err, data) => {
+            users.get(email, (err, data) => {
+                if(data.password == input.oldpassword) {
+                    if(input.newpassword.length > 8) {
+                        users.update(input, email, (err,data)=>{
+                            if(err) throw err;
+                        })
+                        cb(err, data);
+                    } else {
+                        cb(`Password length should be greater than 8 digits`);
+                    }
+                } else {
+                    cb(`Password didn't match`);
+                }
+            })
+        });
+    },
     delete(id,email, cb){
         conn.query(`DELETE FROM profiles WHERE profile_id=${mysql.escape(id)} and email=${mysql.escape(email)}` , (err,data)=>{
             if(err) throw err;
