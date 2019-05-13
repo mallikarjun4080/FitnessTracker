@@ -1,18 +1,46 @@
 <template>
   <div id="app">
+    <Autocomplete :items="user"
+      filterby="name"
+      @change="onChange"
+      title="Look for a user"
+      @selected="userSelected"/>
     <router-view></router-view>
     <!-- <Home/> -->
     <!-- <Signin/> -->
     <!-- <Signup/> -->
     <!-- <SetProfile/> -->
   </div>
+ 
 </template>
 
 <script>
 export default {
-  name: 'app'
-}
+  name: 'app',
+    
+};
+
+ data() {
+    return {
+      users: []
+    };
+  },
+methods: {
+    userSelected(user) {
+      console.log(`user Selected: ${user.name}`);
+    };
+    onChange(value) {
+      // do something with the current value
+    }
+  },
+  components: {
+    autocomplete
+  }
+
+           
 </script>
+
+import autocomplete from './components/Autocomplete.vue'
 
 <style>
 #app {
